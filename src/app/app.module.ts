@@ -22,6 +22,7 @@ import {AuthorComponent} from './core/author/author.component';
 import {AboutComponent} from './core/about/about.component';
 import { Routes, RouterModule } from '@angular/router';
 import { BankaService } from './service/banka.service';
+import { KorisnikUslugeService } from './service/korisnik-usluge.service';
 
 
 const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
@@ -58,7 +59,8 @@ const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
     MatTableModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BankaService],
+  providers: [BankaService, 
+  KorisnikUslugeService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
