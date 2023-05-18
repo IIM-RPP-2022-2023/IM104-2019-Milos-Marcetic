@@ -1,3 +1,4 @@
+import { FilijalaService } from './service/filijala.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { MatButtonModule } from '@angular/material/button';
@@ -23,11 +24,12 @@ import {AboutComponent} from './core/about/about.component';
 import { Routes, RouterModule } from '@angular/router';
 import { BankaService } from './service/banka.service';
 import { KorisnikUslugeService } from './service/korisnik-usluge.service';
+import { UslugaService } from './service/usluga.service';
 
 
 const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
                 {path: 'banka', component: BankaComponent},
-                {path: 'korisnikUsluge', component: KorisnikUslugeComponent},
+                {path: 'korisnik_usluge', component: KorisnikUslugeComponent},
                 {path: 'filijala', component: FilijalaComponent},
                 {path: 'usluga', component: UslugaComponent},
                 {path: 'home', component: HomeComponent},
@@ -60,7 +62,9 @@ const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
     RouterModule.forRoot(routes)
   ],
   providers: [BankaService, 
-  KorisnikUslugeService],
+  KorisnikUslugeService,
+  FilijalaService,
+  UslugaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
