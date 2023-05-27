@@ -20,6 +20,14 @@
         <mat-datepicker #datumUgovora></mat-datepicker>
       </mat-form-field>
     </div>
+
+    <div class="form">
+      <mat-form-field class="data-full-width">
+        <input type="tel" matInput placeholder="Provizija" [(ngModel)]="data.provizija" name="provizija" [disabled]="flag == 3">
+        <span matSuffix>RSD</span>
+      </mat-form-field>
+      </div>
+
     <div class="form">
       <mat-form-field>
         <mat-select [(ngModel)]="data.filijala" placeholder="Filijala" name="filijala" [compareWith]="compareTo" [disabled]="flag == 3">
@@ -32,7 +40,7 @@
 
     <div class="form">
       <mat-form-field>
-        <mat-select [(ngModel)]="data.korisnik" placeholder="Korisnik Usluge" name="korisnik_usluge" [compareWith]="compareTo" [disabled]="flag == 3">
+        <mat-select [(ngModel)]="data.korisnik" placeholder="Korisnik Usluge" name="korisnik" [compareWith]="compareTo" [disabled]="flag == 3">
           <mat-option *ngFor="let korisnik of korisnici" [value]="korisnik">
             {{korisnik.ime}}
           </mat-option>

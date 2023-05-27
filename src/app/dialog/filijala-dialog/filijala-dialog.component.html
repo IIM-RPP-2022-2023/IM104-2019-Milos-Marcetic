@@ -20,7 +20,11 @@
       </div>
       <div class="form">
         <mat-form-field>
-          <input matInput placeholder="Banka" [(ngModel)]="data.banka" name="banka" [disabled] = "flag == 3" required>
+          <mat-select [(ngModel)]="data.banka" placeholder="Banka" name="Banka" [compareWith]="compareTo" [disabled]="flag == 3">
+            <mat-option *ngFor="let banka of banke" [value]="banka">
+              {{banka.naziv}}
+            </mat-option>
+          </mat-select>
         </mat-form-field>
       </div>
       <div mat-dialog-actions>
