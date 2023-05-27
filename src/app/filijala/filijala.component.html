@@ -22,25 +22,25 @@
 
       <ng-container matColumnDef="poseduje_sef">
         <mat-header-cell *matHeaderCellDef>Pib</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.poseduje_sef}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.poseduje_sef? 'Da': 'Ne'}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="banka">
         <mat-header-cell *matHeaderCellDef>Banka</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.banka}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.banka.naziv}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary"(click)="openDialog(1, 0, '', 0, false, banka)">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary" (click)="openDialog(2, row.id, row.adresa, row.broj_pultova, row.poseduje_sef, row.banka)">
             <mat-icon arial label="Edit">edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary" (click)="openDialog(3, row.id, row.adresa, row.broj_pultova, row.poseduje_sef, row.banka)">
             <mat-icon arial label="Delete">delete</mat-icon>
           </button>
         </mat-cell>

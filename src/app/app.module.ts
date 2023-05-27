@@ -10,7 +10,9 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatTableModule } from '@angular/material/table';
 import { HttpClientModule } from '@angular/common/http';
-
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatInputModule } from '@angular/material/input';
+import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -25,7 +27,15 @@ import { Routes, RouterModule } from '@angular/router';
 import { BankaService } from './service/banka.service';
 import { KorisnikUslugeService } from './service/korisnik-usluge.service';
 import { UslugaService } from './service/usluga.service';
-
+import { BankaDialogComponent } from './dialog/banka-dialog/banka-dialog.component';
+import { KorisnikUslugeDialogComponent } from './dialog/korisnik-usluge-dialog/korisnik-usluge-dialog.component';
+import { FilijalaDialogComponent } from './dialog/filijala-dialog/filijala-dialog.component';
+import { UslugaDialogComponent } from './dialog/usluga-dialog/usluga-dialog.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatDialogModule } from '@angular/material/dialog';
+import { FormsModule } from '@angular/forms';
 
 const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
                 {path: 'banka', component: BankaComponent},
@@ -45,7 +55,11 @@ const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
     HomeComponent,
     AboutComponent,
     AuthorComponent,
-    BankaComponent
+    BankaComponent,
+    BankaDialogComponent,
+    KorisnikUslugeDialogComponent,
+    FilijalaDialogComponent,
+    UslugaDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -59,9 +73,18 @@ const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
     MatToolbarModule,
     MatFormFieldModule,
     MatTableModule,
+    MatSnackBarModule,
+    MatDialogModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatCheckboxModule,
+    FormsModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [BankaService, 
+  providers: [{provide: MAT_DATE_LOCALE, useValue:'en-GB'},
+  BankaService, 
   KorisnikUslugeService,
   FilijalaService,
   UslugaService],

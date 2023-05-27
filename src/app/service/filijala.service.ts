@@ -1,3 +1,4 @@
+
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from "rxjs";
 import { Filijala } from "../model/filijala.model";
@@ -22,5 +23,17 @@ export class FilijalaService{
       }
     );
     return this.dataChange.asObservable();
+  }
+
+  public addFilijala(filijala: Filijala): void {
+    this.httpClient.post(this.API_URL, filijala).subscribe();
+  }
+
+  public updateFilijala(filijala: Filijala): void {
+    this.httpClient.put(this.API_URL + filijala.id, filijala).subscribe();
+  }
+
+  public deleteFilijala(filijala: Filijala): void {
+    this.httpClient.delete(this.API_URL + filijala.id).subscribe();
   }
 }

@@ -22,4 +22,16 @@ export class UslugaService{
       );
       return this.dataChange.asObservable();
     }
+
+    public addUsluga(usluga: Usluga): void {
+      this.httpClient.post(this.API_URL, usluga).subscribe();
+    }
+  
+    public updateUsluga(usluga: Usluga): void {
+      this.httpClient.put(this.API_URL + usluga.id, usluga).subscribe();
+    }
+  
+    public deleteUsluga(usluga: Usluga): void {
+      this.httpClient.delete(this.API_URL + usluga.id).subscribe();
+    }
 }

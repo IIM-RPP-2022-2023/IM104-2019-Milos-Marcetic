@@ -23,4 +23,16 @@ export class BankaService{
     );
     return this.dataChange.asObservable();
   }
+
+  public addBanka(banka: Banka): void {
+    this.httpClient.post(this.API_URL, banka).subscribe();
+  }
+
+  public updateBanka(banka: Banka): void {
+    this.httpClient.put(this.API_URL + banka.id, banka).subscribe();
+  }
+
+  public deleteBanka(banka: Banka): void {
+    this.httpClient.delete(this.API_URL + banka.id).subscribe();
+  }
 }

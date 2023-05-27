@@ -27,15 +27,15 @@
 
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary"(click)="openDialog(1, 0, '', '', 0)">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary" (click)="openDialog(2, row.id, row.ime, row.prezime, row.maticni_broj)">
             <mat-icon arial label="Edit">edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary" (click)="openDialog(2, row.id, row.ime, row.prezime, row.maticni_broj)">
             <mat-icon arial label="Delete">delete</mat-icon>
           </button>
         </mat-cell>

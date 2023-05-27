@@ -22,7 +22,7 @@
 
       <ng-container matColumnDef="datum_ugovora">
         <mat-header-cell *matHeaderCellDef>Datum ugovora</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.datum_ugovora}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.datum_ugovora | date: "dd.MM.yyyy."}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="provizija">
@@ -32,25 +32,25 @@
 
       <ng-container matColumnDef="filijala">
         <mat-header-cell *matHeaderCellDef>Filijala</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.filijala}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.filijala.adresa}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="korisnik">
         <mat-header-cell *matHeaderCellDef>Korisnik</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.korisnik}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.korisnik.ime.prezime}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">
         <mat-header-cell *matHeaderCellDef>
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary"(click)="openDialog(1, 0, '', '', today, 0, filijala, korisnik)">
             <mat-icon>add</mat-icon>
           </button>
         </mat-header-cell>
         <mat-cell *matCellDef="let row">
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary" (click)="openDialog(2, row.id, row.naziv, row.opis_usluge, row.datum_ugovora, row.provizija, row.filijala, row.korisnik)">
             <mat-icon arial label="Edit">edit</mat-icon>
           </button>
-          <button mat-icon-button color="primary">
+          <button mat-icon-button color="primary" (click)="openDialog(3, row.id, row.naziv, row.opis_usluge, row.datum_ugovora, row.provizija, row.filijala, row.korisnik)">
             <mat-icon arial label="Delete">delete</mat-icon>
           </button>
         </mat-cell>
