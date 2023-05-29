@@ -40,9 +40,9 @@
 
     <div class="form">
       <mat-form-field>
-        <mat-select [(ngModel)]="data.korisnik" placeholder="Korisnik Usluge" name="korisnik" [compareWith]="compareTo" [disabled]="flag == 3">
+        <mat-select [(ngModel)]="data.korisnik" placeholder="Korisnik" name="korisnik" [compareWith]="compareTo" [disabled]="flag == 3">
           <mat-option *ngFor="let korisnik of korisnici" [value]="korisnik">
-            {{korisnik.ime}}
+            {{ korisnik.ime }}
           </mat-option>
         </mat-select>
       </mat-form-field>

@@ -8,6 +8,8 @@ import { Usluga } from 'src/app/model/usluga.model';
 import { UslugaService } from 'src/app/service/usluga.service';
 import { KorisnikUsluge } from 'src/app/model/korisnik-usluge.model';
 import { Filijala } from 'src/app/model/filijala.model';
+import { KorisnikUslugeDialogComponent } from '../korisnik-usluge-dialog/korisnik-usluge-dialog.component';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-usluga-dialog',
