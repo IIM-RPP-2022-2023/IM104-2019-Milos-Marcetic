@@ -38,15 +38,27 @@ export class FilijalaComponent implements OnInit{
     //this.dataSource = this.filijalaService.getAllFilijala();
     this.filijalaService.getAllFilijala().subscribe(data=>{
       this.dataSource= new MatTableDataSource(data);
-      this.dataSource.sortingDataAccessor=(data: any, property)=>{
+      this.dataSource.filterPredicate = (data: any, filter: string) => {
+        const accumulator = (currentTerm: string, key: string) => {
+          return key === 'banka' ? currentTerm + data.banka.naziv : currentTerm + data[key];
+        };
+        const dataStr = Object.keys(data).reduce(accumulator, '').toLowerCase();
+        const transformedFilter = filter.trim().toLowerCase();
+        return dataStr.indexOf(transformedFilter) !== -1;
+      };
+
+      this.dataSource.sortingDataAccessor = (data:any, property) =>{
         switch(property){
-          case 'id' : return data[property];
+          case 'id': return data[property];
+          case 'adresa': return data[property];
+          case 'broj_pultova': return data[property];
+          case 'banka': return data.banka.naziv;
           default: return data[property].toLocaleLowerCase();
         }
       };
-      this.dataSource.sort=this.sort;
-      this.dataSource.paginator=this.paginator;
-    })
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+    });
   }
   public openDialog(flag: number, id: number, adresa: string, broj_pultova: number, poseduje_sef: boolean, banka: Banka) {
 

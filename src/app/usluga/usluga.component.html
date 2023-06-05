@@ -3,40 +3,45 @@
   </mat-toolbar>
   
   <div class="container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" class="mat-cell">
+
+    <mat-form-field>
+      <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretrazite usluge">
+    </mat-form-field>
+
+    <mat-table [dataSource]="dataSource" class="mat-cell" matSort>
   
       <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="naziv">
-        <mat-header-cell *matHeaderCellDef>Naziv</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.naziv}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="opis_usluge">
-        <mat-header-cell *matHeaderCellDef>Opis Usluge</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Opis Usluge</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.opis_usluge}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="datum_ugovora">
-        <mat-header-cell *matHeaderCellDef>Datum ugovora</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Datum ugovora</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.datum_ugovora | date: "dd.MM.yyyy."}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="provizija">
-        <mat-header-cell *matHeaderCellDef>Provizija</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Provizija</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.provizija}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="filijala">
-        <mat-header-cell *matHeaderCellDef>Filijala</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Filijala</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.filijala.adresa}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="korisnik">
-        <mat-header-cell *matHeaderCellDef>Korisnik Usluge</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Korisnik Usluge</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.korisnik.ime}} {{ row.korisnik.prezime }}</mat-cell>
       </ng-container>
 
