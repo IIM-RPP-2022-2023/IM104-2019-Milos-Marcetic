@@ -1,3 +1,7 @@
+.selectedRow{
+  background-color: lightgrey;
+}
+
 .container {
     display: flex;
     flex-direction: column;

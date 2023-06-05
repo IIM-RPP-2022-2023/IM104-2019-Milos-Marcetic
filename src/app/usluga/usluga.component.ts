@@ -1,5 +1,5 @@
 import { Filijala } from './../model/filijala.model';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Usluga } from '../model/usluga.model';
 import { UslugaService } from '../service/usluga.service';
@@ -21,6 +21,9 @@ import { KorisnikUsluge } from '../model/korisnik-usluge.model';
 
     korisnik!: KorisnikUsluge;
 
+    @Input()
+    selektovaniKorisnik!: KorisnikUsluge;
+
     dataSource!: Observable<Usluga[]>;
   
     constructor(public uslugaService: UslugaService,
@@ -29,9 +32,16 @@ import { KorisnikUsluge } from '../model/korisnik-usluge.model';
     ngOnInit(): void {
       this.loadData();
     }
+
+    ngOnChanges(): void {
+      if(this.selektovaniKorisnik.id){
+        this.loadData();
+      }
+    }
   
     public loadData(){
-      this.dataSource = this.uslugaService.getAllUsluga();
+      //this.dataSource = this.uslugaService.getAllUsluga();
+      this.dataSource=this.uslugaService.getUslugeZaKorisnika(this.selektovaniKorisnik.id)
     }
 
     public openDialog(flag: number, id: number, naziv: string, opis_usluge: string, datum_ugovora: Date, provizija:number, filijala: Filijala, korisnik: KorisnikUsluge) {
@@ -47,5 +57,6 @@ import { KorisnikUsluge } from '../model/korisnik-usluge.model';
         }
       })
     }
+    
   }
 

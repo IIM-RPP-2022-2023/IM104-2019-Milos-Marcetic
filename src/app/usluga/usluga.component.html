@@ -37,7 +37,7 @@
 
       <ng-container matColumnDef="korisnik">
         <mat-header-cell *matHeaderCellDef>Korisnik Usluge</mat-header-cell>
-        <mat-cell *matCellDef="let row">{{row.korisnik.ime.prezime}}</mat-cell>
+        <mat-cell *matCellDef="let row">{{row.korisnik.ime}} {{ row.korisnik.prezime }}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="actions">

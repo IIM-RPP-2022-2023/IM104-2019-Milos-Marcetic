@@ -36,6 +36,8 @@ import { MAT_DATE_LOCALE, MatNativeDateModule } from '@angular/material/core';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FormsModule } from '@angular/forms';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
 
 const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
                 {path: 'banka', component: BankaComponent},
@@ -78,6 +80,10 @@ const routes: Routes = [{path: '', redirectTo: 'home', pathMatch: 'full'},
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
+    MatSortModule,
+    MatPaginatorModule,
+    MatFormFieldModule,
+    FormsModule,
     MatNativeDateModule,
     MatCheckboxModule,
     FormsModule,

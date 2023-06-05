@@ -1,32 +1,36 @@
 <mat-toolbar color="primary">
     <span class="title-center">Filijala</span>
   </mat-toolbar>
+
+  <mat-form-field>
+    <input matInput (keyup)="applyFilter($any($event.target).value)" placeholder="Pretraga">
+  </mat-form-field>
   
   <div class="container mat-elevation-z8">
-    <mat-table [dataSource]="dataSource" class="mat-cell">
+    <mat-table [dataSource]="dataSource" class="mat-cell" matSort>
   
       <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef>Id</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Id</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.id}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="adresa">
-        <mat-header-cell *matHeaderCellDef>Naziv</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Naziv</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.adresa}}</mat-cell>
       </ng-container>
   
       <ng-container matColumnDef="broj_pultova">
-        <mat-header-cell *matHeaderCellDef>Broj pultova</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Broj pultova</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.broj_pultova}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="poseduje_sef">
-        <mat-header-cell *matHeaderCellDef>Pib</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Pib</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.poseduje_sef? 'Da': 'Ne'}}</mat-cell>
       </ng-container>
 
       <ng-container matColumnDef="banka">
-        <mat-header-cell *matHeaderCellDef>Banka</mat-header-cell>
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Banka</mat-header-cell>
         <mat-cell *matCellDef="let row">{{row.banka.naziv}}</mat-cell>
       </ng-container>
 
@@ -49,4 +53,6 @@
       <mat-header-row *matHeaderRowDef="displayedColumns"> </mat-header-row>
       <mat-row style="cursor: default" *matRowDef="let row; columns: displayedColumns"> </mat-row>
     </mat-table>
+
+    <mat-paginator [pageSize]="10" [pageSizeOptions]="[5,10,15]" [showFirstLastButtons]="true"></mat-paginator>
   </div>
