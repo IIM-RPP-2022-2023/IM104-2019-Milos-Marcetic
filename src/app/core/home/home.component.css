@@ -15,9 +15,18 @@ header h1 {
     margin: 0;
 }
 
+.tekst{
+    text-align: left;
+    vertical-align: top;
+}
+
 
 main {
     padding: 20px;
+    font-size: 20px;
+    padding-left: 20px;
+    vertical-align:text-top;
+    text-align: left;
 }
 
 section {
@@ -26,7 +35,10 @@ section {
 
 img {
     max-width: 100%;
-    height: auto;
+    height: 550px;
+    width: 550px;
+    margin-right:2cm;
+    margin-left: 15cm;
 }
 
 h2 {
@@ -40,6 +52,8 @@ a {
     margin-right: 10px;
     text-decoration: none;
 }
+
+
 
 button {
     padding: 10px 20px;
