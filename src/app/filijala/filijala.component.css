@@ -17,24 +17,28 @@
     font-style: italic;
   }
   
-  .mat-cell:nth-child(1),
-  .mat-header-cell:nth-child(1){
+  .mat-column-id {
     flex: 0 0 5%;
   }
   
-  .mat-cell:nth-child(2),
-  .mat-header-cell:nth-child(2){
-    flex: 0 0 45%;
+  .mat-column-adresa {
+    flex: 0 0 30%;
   }
   
-  .mat-cell:nth-child(3),
-  .mat-header-cell:nth-child(3){
-    flex: 0 0 40%;
+  .mat-column-broj_pultova {
+    flex: 0 0 15%;
   }
   
-  .mat-cell:nth-child(7),
-  .mat-header-cell:nth-child(7){
-    flex: 0 0 10%;
+  .mat-column-poseduje_sef {
+    flex: 0 0 20%;
+  }
+  
+  .mat-column-banka {
+    flex: 0 0 15%;
+  }
+  
+  .mat-column-actions {
+    flex: 0 0 15%;
   }
   
   .title-center {

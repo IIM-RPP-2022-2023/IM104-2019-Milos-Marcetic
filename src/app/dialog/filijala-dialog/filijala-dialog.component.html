@@ -14,9 +14,7 @@
         </mat-form-field>
       </div>
       <div class="form">
-        <mat-form-field>
-          <input matInput placeholder="Poseduje sef" [(ngModel)]="data.poseduje_sef" name="poseduje sef" [disabled] = "flag == 3" required>
-        </mat-form-field>
+        <mat-checkbox style="align-content: flex-end" [(ngModel)]="data.poseduje_sef" name="poseduje_sef" [disabled]="flag == 3">Poseduje sefa</mat-checkbox>
       </div>
       <div class="form">
         <mat-form-field>

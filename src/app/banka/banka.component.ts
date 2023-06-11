@@ -39,6 +39,7 @@ export class BankaComponent implements OnInit{
       this.dataSource.sortingDataAccessor=(data: any, property)=>{
         switch(property){
           case 'id' : return data[property];
+          case 'pib': return data[property];
           default: return data[property].toLocaleLowerCase();
         }
       };
